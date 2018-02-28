@@ -5,3 +5,10 @@ C:\Users\USERADM\source\repos\First\Task1\obj\Debug\Task1.csprojResolveAssemblyR
 C:\Users\USERADM\source\repos\First\Task1\obj\Debug\Task1.csproj.CoreCompileInputs.cache
 C:\Users\USERADM\source\repos\First\Task1\obj\Debug\Task1.exe
 C:\Users\USERADM\source\repos\First\Task1\obj\Debug\Task1.pdb
+C:\Users\USERADM\source\My repos\Enducation-repos\First\Task1\bin\Debug\Task1.exe.config
+C:\Users\USERADM\source\My repos\Enducation-repos\First\Task1\bin\Debug\Task1.exe
+C:\Users\USERADM\source\My repos\Enducation-repos\First\Task1\bin\Debug\Task1.pdb
+C:\Users\USERADM\source\My repos\Enducation-repos\First\Task1\obj\Debug\Task1.csprojResolveAssemblyReference.cache
+C:\Users\USERADM\source\My repos\Enducation-repos\First\Task1\obj\Debug\Task1.csproj.CoreCompileInputs.cache
+C:\Users\USERADM\source\My repos\Enducation-repos\First\Task1\obj\Debug\Task1.exe
+C:\Users\USERADM\source\My repos\Enducation-repos\First\Task1\obj\Debug\Task1.pdb

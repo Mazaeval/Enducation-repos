@@ -11,14 +11,14 @@ namespace Task1
         static void Main(string[] args)
         {
             Console.WriteLine("Enter wide");
-            float wide = Console.Read();
+            float wide = float.Parse(Console.ReadLine());
             if (wide <= 0)
             {
                 Console.WriteLine("Incrrect wide");
                 return;
             }
             Console.WriteLine("Enter length");
-            float length = Console.Read();
+            float length = float.Parse(Console.ReadLine());
             if (length <= 0)
             {
                 Console.WriteLine("Incrrect length");
@@ -26,7 +26,7 @@ namespace Task1
             }
             float area = wide * length;
             Console.WriteLine("Area = " + area);
-            Console.Read();
+            Console.ReadKey();
         }
     }
 }
