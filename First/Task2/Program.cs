@@ -20,7 +20,7 @@ namespace Task2
                 }
                 Console.WriteLine();
             }
-            Console.Read();
+            Console.ReadKey();
         }
     }
 }

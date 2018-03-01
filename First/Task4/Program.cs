@@ -18,18 +18,13 @@ namespace Task4
                 {
                     Console.Write(" ");
                 }
-                for (int m = 0; m < i; m++)
-                {
-                    Console.Write("*");
-                }
-                Console.Write("*");
-                for (int m = 0; m < i; m++)
+                for (int m = 0; m < i * 2 + 1; m++)
                 {
                     Console.Write("*");
                 }
                 Console.WriteLine();
             }
-            Console.Read();
+            Console.ReadKey();
         }
     }
 }

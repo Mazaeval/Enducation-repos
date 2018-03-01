@@ -4,3 +4,10 @@ C:\Users\USERADM\source\My repos\Enducation-repos\First\Task4\bin\Debug\Task4.pd
 C:\Users\USERADM\source\My repos\Enducation-repos\First\Task4\obj\Debug\Task4.csproj.CoreCompileInputs.cache
 C:\Users\USERADM\source\My repos\Enducation-repos\First\Task4\obj\Debug\Task4.exe
 C:\Users\USERADM\source\My repos\Enducation-repos\First\Task4\obj\Debug\Task4.pdb
+E:\VS2017\EPAM Enducation\Enducation-repos\First\Task4\bin\Debug\Task4.exe.config
+E:\VS2017\EPAM Enducation\Enducation-repos\First\Task4\bin\Debug\Task4.exe
+E:\VS2017\EPAM Enducation\Enducation-repos\First\Task4\bin\Debug\Task4.pdb
+E:\VS2017\EPAM Enducation\Enducation-repos\First\Task4\obj\Debug\Task4.csproj.CoreCompileInputs.cache
+E:\VS2017\EPAM Enducation\Enducation-repos\First\Task4\obj\Debug\Task4.exe
+E:\VS2017\EPAM Enducation\Enducation-repos\First\Task4\obj\Debug\Task4.pdb
+E:\VS2017\EPAM Enducation\Enducation-repos\First\Task4\obj\Debug\Task4.csprojResolveAssemblyReference.cache
