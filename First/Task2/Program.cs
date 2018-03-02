@@ -12,14 +12,12 @@ namespace Task2
         {
             Console.WriteLine("Enter N");
             int n = int.Parse(Console.ReadLine());
+            var triangle = string.Empty;
             for (int i = 0; i < n; i++)
             {
-                for (int m = 0; m <= i; m++)
-                {
-                    Console.Write("*");
-                }
-                Console.WriteLine();
+                triangle += new string('*', i) + "\n\r";
             }
+            Console.WriteLine(triangle);
             Console.ReadKey();
         }
     }
