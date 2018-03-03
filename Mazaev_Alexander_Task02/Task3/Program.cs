@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyArrayExtension;
 
 namespace Task3
 {
@@ -11,20 +12,18 @@ namespace Task3
         static void Main(string[] args)
         {
             int sum = 0;
-            Random r = new Random();
-            int[] arr = new int[100];
-            for (int i = 0; i < 100; i++)
-            {
-                arr[i] = r.Next(-999, 999);
-            }
-
-            for (int i = 0; i < 100; i++)
+            int[] arr = new int[10];
+            arr.FillRand(-999, 999);
+            for (int i = 0; i < 10; i++)
             {
                 if (arr[i]>0)
                 {
-                    sum+=arr[]
+                    sum += arr[i];
                 }
             }
+            Console.WriteLine(arr.Display());
+            Console.WriteLine("sum = " + sum.ToString());
+            Console.ReadKey();
         }
     }
 }

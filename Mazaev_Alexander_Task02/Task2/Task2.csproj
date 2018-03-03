@@ -48,5 +48,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyArrayExtension\MyArrayExtension.csproj">
+      <Project>{e69b9f48-2cd8-449a-a52c-b37cfd5594fb}</Project>
+      <Name>MyArrayExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Task1\Task1.csproj">
+      <Project>{d6f9b006-6e0e-4431-a597-ac19f59dd55f}</Project>
+      <Name>Task1</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
