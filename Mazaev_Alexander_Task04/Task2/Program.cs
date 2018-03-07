@@ -13,13 +13,18 @@ namespace Task2
         {
             String source = "написать программу, которая";
             String pattern = "описание";
-            pattern = "["+pattern+ "]{1,1}";
-            Match m = Regex.Match(source, pattern);
+            pattern = new string(pattern.Distinct().ToArray());
+            pattern = $"[{pattern}]";
+            /* Match m = Regex.Match(source, pattern);
             while (m.Success)
-            {
-                source = source.Insert(m.Index, m.Value);
+             {
+                char c = m.Value[0];
+                source = source.Replace(m.Value, new string(c, 2));
                 m = m.NextMatch();
-            }
+            } */
+
+            Regex.Replace(source, pattern, (match) => match.Value + match.Value);
+
             Console.WriteLine(source);
             Console.ReadKey();
         }

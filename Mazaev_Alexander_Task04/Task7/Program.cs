@@ -16,7 +16,7 @@ namespace Task7
             MatchCollection matches = Regex.Matches(source, pattern);
             foreach (Match match in matches)
             {
-                if ((Convert.ToInt32(match.Groups[1].Value) <= 24) && (Convert.ToInt32(match.Groups[2].Value) <= 60))
+                if ((Convert.ToInt32(match.Groups[1].Value) <= 23) && (Convert.ToInt32(match.Groups[2].Value) <= 60))
                 {
                     num++;
                 }
@@ -25,7 +25,7 @@ namespace Task7
         }
         static void Main(string[] args)
         {
-            String text = "В 7:55 я встал, позавтракал и к 10:77 пошел на работу. В 14:00 я дошел до работы. В 184:21 я ушел с работы. В 25:11 я вернулся домой.";
+            String text = "В 7:55 я встал, позавтракал и к 10:77 пошел на работу. В 14:00 я дошел до работы. В 24:59 я ушел с работы. В 25:11 я вернулся домой.";
             Console.WriteLine(text);
             Console.WriteLine("Время в тексте присутствует "+ HowMuchTimeInText(text) +" раз.");
             Console.ReadKey();
