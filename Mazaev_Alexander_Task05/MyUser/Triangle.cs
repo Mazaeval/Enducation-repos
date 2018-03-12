@@ -18,6 +18,7 @@ namespace MyClasses
 
         public Triangle (float a, float b, float c)
         {
+            // check
             sidea = a;
             sideb = b;
             sidec = c;
@@ -37,14 +38,8 @@ namespace MyClasses
 
         public float SideB
         {
-            get
-            {
-                return sideb;
-            }
-            set
-            {
-                sideb = value;
-            }
+            get;
+            private set;
         }
 
         public float SideC
@@ -57,6 +52,15 @@ namespace MyClasses
             {
                 sidec = value;
             }
+        }
+
+        public double Area
+        {
+            get
+            {
+                float p = (sidea + sideb + sidec) / 2;
+                return Math.Sqrt(p * (p - sidea) * (p - sideb) * (p - sidec));
+            }         
         }
     }
 }

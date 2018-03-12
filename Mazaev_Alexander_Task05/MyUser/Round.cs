@@ -8,23 +8,23 @@ namespace MyClasses
 {
     class Round
     {
-        private const float pi = 3.1415926f;
-        private float pointx;
-        private float pointy;
-        private float radius;
+        private const double pi = Math.PI;
+        private double pointx;
+        private double pointy;
+        private double radius;
         public Round()
         {
 
         }
 
-        public Round(float x, float y, float r)
+        public Round(double x, double y, double r)
         {
             PointX = x;
             PointY = y;
             Radius = r;
         }
 
-        public float PointX
+        public double PointX
         {
             get
             {
@@ -37,7 +37,7 @@ namespace MyClasses
             }
         }
 
-        public float PointY
+        public double PointY
         {
             get
             {
@@ -50,7 +50,7 @@ namespace MyClasses
             }
         }
 
-        public float Radius
+        public double Radius
         {
             get
             {
@@ -59,15 +59,23 @@ namespace MyClasses
 
             set
             {
-                radius = value;
+                if (value<=0)
+                {
+                    new System.ArgumentException("Radius cannot be <=0!");
+                }
+                else radius = value;
             }
         }
 
-        public float Area
+        public double Area
         {
             get
             {
                 return pi * radius * radius;
+            }
+            set
+            {
+                radius = Math.Sqrt(value / pi);
             }
         }
     }
