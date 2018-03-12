@@ -10,13 +10,21 @@ namespace MyClasses
     public class MyUser
     {
         private String firstname;
-        private String middlename;
         private String lastname;
         private DateTime birthdate;
         private DateTime createdate;
 
         public MyUser()
         {
+            createdate = DateTime.Now;
+        }
+
+        public MyUser(String First, String Middle, String Last, String BDate)
+        {
+            this.FirstName = First;
+            this.MiddleName = Middle;
+            this.LastName = Last;
+            this.BirthDateParse = BDate;
             createdate = DateTime.Now;
         }
 
@@ -28,9 +36,9 @@ namespace MyClasses
             }
             set
             {
-                if ((value == null) || (value == ""))
+                if (string.IsNullOrEmpty(value))
                 {
-                    throw new System.ArgumentException("FirstName cannot be null or empty");
+                    throw new ArgumentException("FirstName cannot be null or empty");
                 }
                 firstname = value;
             }
@@ -38,14 +46,8 @@ namespace MyClasses
 
         public String MiddleName
         {
-            get
-            {
-                return middlename;
-            }
-            set
-            {
-                middlename = value;
-            }
+            get;
+            set;
         }
 
         public String LastName
@@ -80,30 +82,9 @@ namespace MyClasses
             }
         }
 
-        public String BirthDateParse
+        public override string ToString()
         {
-          /*  get
-            {
-                return birthdate;
-            } */
-            set
-            {
-                DateTime date = DateTime.ParseExact(value, "dd-MM-yyyy", CultureInfo.InvariantCulture);
-                if (date > DateTime.Today)
-                {
-                    throw new System.ArgumentException("BirthDate later than the current date");
-                }
-                birthdate = date;
-            }
-        }
-
-        public String Display
-        {
-            get
-            {
-                String ToDisplay = firstname + " " + middlename + " " + lastname + " " + birthdate.Date.ToString("dd-MM-yyyy") + " " + createdate.ToString();
-                return ToDisplay;
-            }
+            return  firstname + " " + middlename + " " + lastname + " " + birthdate.Date.ToString("dd-MM-yyyy") + " " + createdate.ToString();
         }
     }
 }
