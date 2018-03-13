@@ -32,42 +32,42 @@ namespace MyClasses
             }
         }
 
-      /*  public static MyString ToMyString()
+        public override String ToString()
         {
-            
-        }*/
+            String s = new String(this.chararray);
+            return s;
+        }
 
         public static MyString operator +(MyString left, MyString right)
         {
-            MyString r = new MyString();
-            for (int i = 0; i<=left.CharArray.Length;i++)
-            {
-                r.CharArray[i] = left.CharArray[i];
-            }
-            for (int i = 0; i <= right.CharArray.Length; i++)
-            {
-                r.CharArray[i + left.CharArray.Length] = left.CharArray[i];
-            }
-            return r;
+            String l = new String(left.chararray);
+            String r = new String(right.chararray);
+            MyString lr = new MyString();
+            lr.chararray = (l+r).ToCharArray();
+            return lr;
         }
 
         public static MyString operator -(MyString left, MyString right)
         {
-            MyString r = new MyString();
-            if (left.CharArray.Length > right.CharArray.Length)
-            {
-                for (int i = 0; i <= left.CharArray.Length - right.CharArray.Length; i++)
-                {
-                    r.CharArray[i] = left.CharArray[i];
-                }
-                return r;
-            }
-            return r;
+            String l = new String(left.chararray);
+            String r = new String(right.chararray);
+            MyString lr = new MyString();
+            lr.chararray = (l - r).ToCharArray();
+            return lr;
         }
 
-      /*  public static bool operator ==(MyString left, MyString right)
+       public static bool operator ==(MyString left, MyString right)
         {
-           
-        } */
+            String l = new String(left.chararray);
+            String r = new String(right.chararray);
+            return (l == r);
+        }
+
+        public static bool operator !=(MyString left, MyString right)
+        {
+            String l = new String(left.chararray);
+            String r = new String(right.chararray);
+            return (l != r);
+        }
     }
 }

@@ -30,16 +30,30 @@ namespace MyClasses
             {
                 return sidea;
             }
-            set
+            private set
             {
+                if (value <= 0)
+                {
+                    throw new System.ArgumentException("Side cannot be <=0!");
+                }
                 sidea = value;
             }
         }
 
         public float SideB
         {
-            get;
-            private set;
+            get
+            {
+                return sideb;
+            }
+            private set
+            {
+                if (value <= 0)
+                {
+                    throw new System.ArgumentException("Side cannot be <=0!");
+                }
+                sideb = value;
+            }
         }
 
         public float SideC
@@ -48,8 +62,12 @@ namespace MyClasses
             {
                 return sidec;
             }
-            set
+            private set
             {
+                if (value <= 0)
+                {
+                    throw new System.ArgumentException("Side cannot be <=0!");
+                }
                 sidec = value;
             }
         }

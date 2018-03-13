@@ -24,7 +24,7 @@ namespace MyClasses
             this.FirstName = First;
             this.MiddleName = Middle;
             this.LastName = Last;
-         //   this.BirthDateParse = BDate;
+       //     this.BirthDateParse = BDate;
             createdate = DateTime.Now;
         }
 
@@ -58,7 +58,7 @@ namespace MyClasses
             }
             set
             {
-                if ((value == null) || (value == ""))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new System.ArgumentException("LastName cannot be null or empty");
                 }
@@ -82,9 +82,19 @@ namespace MyClasses
             }
         }
 
+        public int GetAge
+        {
+            get
+            {
+                return DateTime.Today.Year - BirthDate.Year;
+            }
+        }
+
         public override string ToString()
         {
-            return  firstname + " " + lastname + " " + birthdate.Date.ToString("dd-MM-yyyy") + " " + createdate.ToString();
+            return firstname + " " + lastname + " " + birthdate.Date.ToString("dd-MM-yyyy") + " " + createdate.ToString();
         }
+
+
     }
 }

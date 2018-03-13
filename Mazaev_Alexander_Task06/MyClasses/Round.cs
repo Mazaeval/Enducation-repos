@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace MyClasses
 {
-    class Round
+    public class Round
     {
-        private const double pi = Math.PI;
-        private double pointx;
-        private double pointy;
-        private double radius;
+        protected double pointx;
+        protected double pointy;
+        protected double radius;
         public Round()
         {
 
@@ -59,9 +58,9 @@ namespace MyClasses
 
             set
             {
-                if (value<=0)
+                if (value <= 0)
                 {
-                   throw new System.ArgumentException("Radius cannot be <=0!");
+                    throw new System.ArgumentException("Radius cannot be <=0!");
                 }
                 else radius = value;
             }
@@ -71,11 +70,32 @@ namespace MyClasses
         {
             get
             {
-                return pi * radius * radius;
+                return Math.PI * radius * radius;
             }
             set
             {
-                radius = Math.Sqrt(value / pi);
+                if (value <= 0)
+                {
+                    throw new System.ArgumentException("Area cannot be <=0!");
+                }
+                radius = Math.Sqrt(value / Math.PI);
+            }
+        }
+
+        public double Сircumference
+        {
+            get
+            {
+                return 2 * Math.PI * radius;
+            }
+
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new System.ArgumentException("Сircumference cannot be <=0!");
+                }
+                radius = value / (2 * Math.PI);
             }
         }
     }
