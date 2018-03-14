@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MyClasses
 {
-    class MyString
+    public class MyString
     {
         private Char[] chararray;
 
-        public MyString()
+        public MyString(string s)
         {
-
+            chararray = s.ToCharArray();
         }
 
         public MyString(char[] arr)
@@ -42,8 +42,7 @@ namespace MyClasses
         {
             String l = new String(left.chararray);
             String r = new String(right.chararray);
-            MyString lr = new MyString();
-            lr.chararray = (l+r).ToCharArray();
+            MyString lr = new MyString(l + r);
             return lr;
         }
 
@@ -51,10 +50,11 @@ namespace MyClasses
         {
             String l = new String(left.chararray);
             String r = new String(right.chararray);
-            MyString lr = new MyString();
-            lr.chararray = (l - r).ToCharArray();
+            MyString lr = new MyString(l.Replace(r, String.Empty));
             return lr;
         }
+
+
 
        public static bool operator ==(MyString left, MyString right)
         {

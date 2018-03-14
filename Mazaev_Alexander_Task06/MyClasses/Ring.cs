@@ -15,14 +15,12 @@ namespace MyClasses
         }
 
         public Ring (double x, double y, double r, double ir)
+            : base(x,y,r)
         {
             if (r >= ir)
             {
                 throw new System.ArgumentException("Inner Radius cannot be more than radius!");
             }
-            pointx = x;
-            pointy = y;
-            Radius = r;
             InnerRadius = ir;
         }
 
@@ -41,7 +39,7 @@ namespace MyClasses
                 }
                 if ((innerradius != 0) && (value <= innerradius))
                 {
-                    throw new System.ArgumentException("Radius cannot be <=0!");
+                    throw new System.ArgumentException("Radius cannot be less than inner radius!!");
                 }
                 else radius = value;
             }
@@ -66,8 +64,8 @@ namespace MyClasses
                 innerradius = value;
             }
         }
-
-        public double RingArea
+        // RingArea
+        public new double Area
         {
             get
             {
@@ -94,7 +92,7 @@ namespace MyClasses
             {
                 if (value <= 0)
                 {
-                    throw new System.ArgumentException("Сircumference cannot be <=0!");
+                    throw new System.ArgumentException("InnerСircumference cannot be <=0!");
                 }
                 innerradius = value / (2 * Math.PI);
             }

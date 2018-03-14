@@ -18,7 +18,18 @@ namespace MyClasses
 
         public Triangle (float a, float b, float c)
         {
-            // check
+            if ((a + b) > c)
+            {
+                throw new System.ArgumentException("(a + b) > c!");
+            }
+            if ((c + a) > b)
+            {
+                throw new System.ArgumentException("(c + a) > b!");
+            }
+            if ((c + b) > a)
+            {
+                throw new System.ArgumentException("(c + b) > a!");
+            }
             sidea = a;
             sideb = b;
             sidec = c;
@@ -35,6 +46,10 @@ namespace MyClasses
                 if (value <= 0)
                 {
                     throw new System.ArgumentException("Side cannot be <=0!");
+                }
+                if ((sidec != 0) && ((value + sideb) > sidec))
+                {
+                    throw new System.ArgumentException("(SideA + b) > c!");
                 }
                 sidea = value;
             }

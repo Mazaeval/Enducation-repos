@@ -58,7 +58,7 @@ namespace MyClasses
             }
             set
             {
-                if ((value == null) || (value == ""))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new System.ArgumentException("LastName cannot be null or empty");
                 }

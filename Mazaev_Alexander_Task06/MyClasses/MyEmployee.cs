@@ -19,7 +19,7 @@ namespace MyClasses
         private String post;
         private String englishlevel;
 
-        public void Experience(int years, int months)
+        public void SetExperience(int years, int months)
         {
             if ((years >= 100) || (years < 0))
             {
