@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mazaev_Alexander_Task07", "Mazaev_Alexander_Task07\Mazaev_Alexander_Task07.csproj", "{9B63ECCA-1D25-44C0-B736-EE418225DBF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Progressions", "Progressions\Progressions.csproj", "{0A3E7103-F380-4EC2-B0DB-2A48979FE56E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B63ECCA-1D25-44C0-B736-EE418225DBF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B63ECCA-1D25-44C0-B736-EE418225DBF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B63ECCA-1D25-44C0-B736-EE418225DBF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B63ECCA-1D25-44C0-B736-EE418225DBF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A3E7103-F380-4EC2-B0DB-2A48979FE56E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3E7103-F380-4EC2-B0DB-2A48979FE56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3E7103-F380-4EC2-B0DB-2A48979FE56E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3E7103-F380-4EC2-B0DB-2A48979FE56E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D707AB80-C4D6-4E4D-876A-75EDE2C0798B}
+	EndGlobalSection
+EndGlobal
