@@ -10,9 +10,10 @@ namespace Progressions
     {
         public static void DemoMain()
         {
-            ISeries progression = new GeometricProgression(2, 2);
+            IIndexableSeries progression = new GeometricProgression(2, 3);
             Console.WriteLine("Progression:");
-            PrintSeries(progression);
+            Console.WriteLine (progression[8]);
+           // PrintSeries(progression);
 
             ISeries list = new List(new double[] { 5, 8, 6, 3, 1 });
             Console.WriteLine("List:");
@@ -33,7 +34,7 @@ namespace Progressions
 
 
 
-    public class GeometricProgression : ISeries
+    public class GeometricProgression : IIndexableSeries
     {
         double start, step;
         int currentIndex;
@@ -42,8 +43,10 @@ namespace Progressions
         {
             this.start = start;
             this.step = step;
-            this.currentIndex = 1;
+            this.currentIndex = 0;
         }
+
+        public double this[int index] => start * Math.Pow(step, index);
 
         public double GetCurrent()
         {
@@ -58,25 +61,19 @@ namespace Progressions
 
         public void Reset()
         {
-            currentIndex = 1;
+            currentIndex = 0;
         }
 
-        /*public double this[int index]
-		{
-			get
-			{
-				return start + step * index;
-			}
-		}*/
+        //public double this[int index]
+        //{
+        //    get
+        //    {
+
+        //        return start * Math.Pow(step, currentIndex);
+        //    }
+        //}
     }
-
-
-
-        /*public double this[int index]
-		{
-			get { return series[index]; }
-		}*/
- }
+}
 
 
 

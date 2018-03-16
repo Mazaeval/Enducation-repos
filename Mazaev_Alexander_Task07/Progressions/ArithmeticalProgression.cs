@@ -10,7 +10,7 @@ namespace Progressions
     {
         public static void DemoMain()
         {
-            ISeries progression = new ArithmeticalProgression(2, 2);
+            IIndexableSeries progression = new ArithmeticalProgression(2, 2);
             Console.WriteLine("Progression:");
             PrintSeries(progression);
 
@@ -31,7 +31,7 @@ namespace Progressions
         }
     }
 
-    public class ArithmeticalProgression : ISeries
+    public class ArithmeticalProgression : IIndexableSeries
     {
         double start, step;
         int currentIndex;
@@ -42,6 +42,8 @@ namespace Progressions
             this.step = step;
             this.currentIndex = 1;
         }
+
+        public double this[int index] => start + step * index;
 
         public double GetCurrent()
         {
