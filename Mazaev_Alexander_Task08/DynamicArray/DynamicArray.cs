@@ -17,30 +17,52 @@ namespace DynamicArrayClass
     public class DynamicArray<T> where T : new()
     {
         private T[] items;
-        private int size;
-        private int capacity;
+        private int length;
+      //  private int capacity;
+
+        public int Length
+        {
+            get; set;
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return items.Length;
+            }
+        }
 
         public DynamicArray()
         {
             items = new T[8];
-            size = 0;
+            length = 0;
         }
 
         public DynamicArray(int n)
         {
             items = new T[n];
-            size = 0;
+            length = 0;
         }
 
         public DynamicArray(T[] a)
         {
             items = a;
-            size = a.Length;
+            length = a.Length;
         }
 
         public void Add(T elem)
         {
-
+            if (length < Capacity)
+            {
+                items[length] = elem;
+            }
+            else
+            {
+                T[] items2 = new T[Capacity * 2];
+                Array.Copy(items, items2, Capacity);
+            }
+                
         }
 
         public void AddRange(T[] a)
@@ -58,14 +80,5 @@ namespace DynamicArrayClass
 
         }
 
-        public int Length()
-        {
-            return 1;
-        }
-
-        public int Capacity()
-        {
-            return 1;
-        }
     }
 }
