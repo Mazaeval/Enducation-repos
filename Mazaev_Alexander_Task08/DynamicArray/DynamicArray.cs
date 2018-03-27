@@ -59,15 +59,20 @@ namespace DynamicArrayClass
             }
             else
             {
-                T[] items2 = new T[Capacity * 2];
-                Array.Copy(items, items2, Capacity);
+                Array.Resize(ref items, Capacity * 2);
+                items[length+1] = elem;
             }
-                
+            length++;
         }
 
         public void AddRange(T[] a)
         {
-
+            while (length+a.Length < Capacity)
+            {
+                Array.Resize(ref items, Capacity * 2);
+            }
+            Array.Copy(a, 1, items, length, a.Length);
+            Length += a.Length;
         }
 
         public bool Remove(T elem)
