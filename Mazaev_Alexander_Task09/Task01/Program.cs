@@ -16,7 +16,8 @@ namespace Task01
                 list[i] = i;
             }
             Console.WriteLine(list.Count);
-            while (list.Count > 2)
+            list.
+            while (list.Count > 1)
             {
                 for (int i = 0; i <= list.Count; i+=2)
                 {
