@@ -14,7 +14,6 @@ namespace Task03
         {
             String source = "English text";
             String pattern = "[a-z]+";
-
             MatchCollection matches = Regex.Matches(source, pattern, RegexOptions.IgnoreCase);
             foreach (Match match in matches)
             {
