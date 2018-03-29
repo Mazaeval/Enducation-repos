@@ -8,22 +8,42 @@ namespace Task01
 {
     class Program
     {
+        static void R<T> (ICollection<T> list)
+        {
+            bool isEven = false;
+            while (list.Count > 1)
+            {
+                var evenElements = new List<T>();
+                //var enumerator = list.GetEnumerator();
+                //while(enumerator.MoveNext())
+                //{
+                //    var curremy = enumerator.Current;
+
+
+                //}
+
+                foreach (var item in list)
+                {
+                    if (isEven)
+                    {
+                        evenElements.Add(item);
+                    }
+
+                    isEven = !isEven;
+                }
+
+                foreach (var item in evenElements)
+                {
+                    list.Remove(item);
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
             List<int> list = new List<int>(30);
-            for (int i = 1; i < 30; i++)
-            {
-                list[i] = i;
-            }
-            Console.WriteLine(list.Count);
-            list.
-            while (list.Count > 1)
-            {
-                for (int i = 0; i <= list.Count; i+=2)
-                {
-                    list.RemoveAt(i);
-                }
-            }
+
+
         }
     }
 }

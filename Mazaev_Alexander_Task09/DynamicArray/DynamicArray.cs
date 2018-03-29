@@ -14,11 +14,13 @@ namespace DynamicArrayClass
         }
     }
 
-    public class DynamicArray<T> where T : new()
+    public class DynamicArray<T> : IEnumerable<T>, where T : new();
     {
         private T[] items;
         private int length;
-      //  private int capacity;
+        //  private int capacity;
+        double start, step;
+        int currentIndex;
 
         public int Length
         {
@@ -60,44 +62,46 @@ namespace DynamicArrayClass
             else
             {
                 Array.Resize(ref items, Capacity * 2);
-                items[length+1] = elem;
+                items[length + 1] = elem;
             }
             length++;
         }
 
         public void AddRange(T[] a)
         {
-            while (length+a.Length < Capacity)
+            while (length + a.Length < Capacity)
             {
                 Array.Resize(ref items, Capacity * 2);
             }
-            Array.Copy(a, 0, items, length, a.Length);
+            Array.Copy(a, 1, items, length, a.Length);
             Length += a.Length;
         }
 
         public bool Remove(T elem)
         {
-            var index = Array.IndexOf(items, elem);
-            if (index < 0) return false;
-            for (var i = index+1; i<Length; i++)
-            {
-                items[i - 1] = items[i];
-            }
-
-            items[length - 1] = default(T);
-            length--;
             return true;
         }
 
         public void Insert(T[] a, int position)
         {
-            while (position + a.Length < Capacity)
-            {
-                Array.Resize(ref items, Capacity * 2);
-            }
-            Array.Copy(a, 0, items, position, a.Length);
-            Length = position + a.Length;
+
         }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
+                yield return items[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+
 
     }
 }
+

@@ -9,11 +9,12 @@ namespace Task03
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             String source = "English text";
             String pattern = "[a-z]+";
-            SortedDictionary<string, int> word_group = new SortedDictionary<string, int>();
+
             MatchCollection matches = Regex.Matches(source, pattern, RegexOptions.IgnoreCase);
             foreach (Match match in matches)
             {
