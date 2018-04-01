@@ -19,8 +19,25 @@ namespace DynamicArrayClass
         private T[] items;
         private int length;
         //  private int capacity;
-        double start, step;
-        int currentIndex;
+        private int position = 0;
+        private object Current
+        {
+            get
+            {
+                return position;
+            }
+        }
+
+        private bool MoveNext()
+        {
+            position++;
+            return true;
+        }
+
+        private void Reset()
+        {
+            position = 0;
+        }
 
         public int Length
         {
@@ -79,12 +96,26 @@ namespace DynamicArrayClass
 
         public bool Remove(T elem)
         {
+            var index = Array.IndexOf(items, elem);
+            if (index < 0) return false;
+            for (var i = index + 1; i < Length; i++)
+            {
+                items[i - 1] = items[i];
+            }
+
+            items[length - 1] = default(T);
+            length--;
             return true;
         }
 
         public void Insert(T[] a, int position)
         {
-
+            while (position + a.Length < Capacity)
+            {
+                Array.Resize(ref items, Capacity * 2);
+            }
+            Array.Copy(a, 0, items, position, a.Length);
+            Length = position + a.Length;
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -95,10 +126,12 @@ namespace DynamicArrayClass
             }
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
             return GetEnumerator();
         }
+
+        public DynamicArrayEnum GetEnumerator()
 
 
 
