@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,30 +15,31 @@ namespace DynamicArrayClass
         }
     }
 
-    public class DynamicArray<T> : IEnumerable<T>, where T : new();
+    public class DynamicArray<T> : IEnumerable<T> where T : new()
     {
         private T[] items;
         private int length;
         //  private int capacity;
         private int position = 0;
-        private object Current
-        {
-            get
-            {
-                return position;
-            }
-        }
 
-        private bool MoveNext()
-        {
-            position++;
-            return true;
-        }
+        //private object Current
+        //{
+        //    get
+        //    {
+        //        return position;
+        //    }
+        //}
 
-        private void Reset()
-        {
-            position = 0;
-        }
+        //private bool MoveNext()
+        //{
+        //    position++;
+        //    return true;
+        //}
+
+        //private void Reset()
+        //{
+        //    position = 0;
+        //}
 
         public int Length
         {
@@ -68,6 +70,12 @@ namespace DynamicArrayClass
         {
             items = a;
             length = a.Length;
+        }
+
+        public DynamicArray(IEnumerable<T> items) //: this(items.ToArray())
+        {
+            this.items = items.ToArray();
+            length = this.items.Length;
         }
 
         public void Add(T elem)
@@ -120,21 +128,16 @@ namespace DynamicArrayClass
 
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < Length; i++)
             {
                 yield return items[i];
             }
         }
 
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
-
-        public DynamicArrayEnum GetEnumerator()
-
-
-
     }
 }
 
