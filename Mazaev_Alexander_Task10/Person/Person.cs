@@ -26,19 +26,17 @@ namespace Person
             Console.WriteLine("'Hello, {0}!', {1} said.", anotherPerson, Name);
         }
 
-        static void hugo_Came(object sender,
-                EventArgs e)
+        public void SayGoodbye(string anotherPerson)
         {
-            Console.WriteLine("Hugo has come");
+            Console.WriteLine("Goodbye, {0}!', {1} said.", anotherPerson, Name);
         }
 
         public void ToLeave()
         {
-            // зачем проверка ?
             if (Leave != null)
             {
                 Leave(this, EventArgs.Empty);
-            }
+            }    
         }
     }
 }

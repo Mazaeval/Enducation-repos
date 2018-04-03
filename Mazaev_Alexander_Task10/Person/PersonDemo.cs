@@ -20,17 +20,18 @@ namespace Person
             hugo.Came += new EventHandler(PersonCame);
             john.Came += new EventHandler(PersonCame);
 
-            // подписываемся на события ухода людей людей
-            hugo.Came += new EventHandler(PersonLeft);
-            john.Came += new EventHandler(PersonLeft);
+            // подписываемся на события ухода людей
+            hugo.Leave += new EventHandler(PersonLeft);
+            john.Leave += new EventHandler(PersonLeft);
 
             // люди приходят
             john.OnCame();
             hugo.OnCame();
 
             // люди уходят
-            john.OnCame();
-            hugo.OnCame();
+            john.ToLeave();
+
+            hugo.ToLeave();
         }
         static void PersonCame(object sender, EventArgs e)
         {
@@ -41,14 +42,22 @@ namespace Person
                 Console.WriteLine("{0} has come", person.Name);
                 if (greetByUs != null)
                     greetByUs(person.Name);
-
                 greetByUs += new Message(person.Greet);
             }
         }
 
         static void PersonLeft(object sender, EventArgs e)
         {
+            var person = sender as Person;
+            if (person != null)
+            {
+                Console.WriteLine("{0} has left", person.Name);
+                if (greetByUs != null)
+                    greetByUs(person.Name);
+                greetByUs += new Message(person.SayGoodbye);
+            }
         }
+
     }
 
 
