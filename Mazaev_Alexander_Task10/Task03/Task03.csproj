@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StringArrayExtension\StringArrayExtension.csproj">
+    <ProjectReference Include="..\StringArrayExtension\StringArrayExtensions.csproj">
       <Project>{973e0539-3f32-4f91-9cc6-8db6498bd221}</Project>
-      <Name>StringArrayExtension</Name>
+      <Name>StringArrayExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

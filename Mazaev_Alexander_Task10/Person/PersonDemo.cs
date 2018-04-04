@@ -9,7 +9,10 @@ namespace Person
     public class PersonDemo
     {
         static Message greetByUs;
-        delegate void Message(string name);
+        static MessageBye sayGoodbyeByUs;
+
+        delegate void Message(string name, DateTime date);
+        delegate void MessageBye(string name);
 
         public static void DemoMain()
         {
@@ -17,32 +20,31 @@ namespace Person
             Person hugo = new Person { Name = "Hugo" };
 
             // подписываемся на события прихода людей
-            hugo.Came += new EventHandler(PersonCame);
-            john.Came += new EventHandler(PersonCame);
+            hugo.Came += PersonCame;
+            john.Came += PersonCame;
 
             // подписываемся на события ухода людей
             hugo.Leave += new EventHandler(PersonLeft);
             john.Leave += new EventHandler(PersonLeft);
 
             // люди приходят
-            john.OnCame();
-            hugo.OnCame();
+            john.GoToWork();
+            hugo.GoToWork();
 
             // люди уходят
             john.ToLeave();
 
             hugo.ToLeave();
         }
-        static void PersonCame(object sender, EventArgs e)
+        static void PersonCame(Person person, DateTime date)
         {
-            var person = sender as Person;
-
             if (person != null)
             {
                 Console.WriteLine("{0} has come", person.Name);
                 if (greetByUs != null)
-                    greetByUs(person.Name);
+                    greetByUs(person.Name, date);
                 greetByUs += new Message(person.Greet);
+                sayGoodbyeByUs += person.SayGoodbye;
             }
         }
 
@@ -51,10 +53,11 @@ namespace Person
             var person = sender as Person;
             if (person != null)
             {
+                greetByUs -= person.Greet;
+                sayGoodbyeByUs -= person.SayGoodbye;
                 Console.WriteLine("{0} has left", person.Name);
-                if (greetByUs != null)
-                    greetByUs(person.Name);
-                greetByUs += new Message(person.SayGoodbye);
+                if (sayGoodbyeByUs != null)
+                    sayGoodbyeByUs(person.Name);
             }
         }
 

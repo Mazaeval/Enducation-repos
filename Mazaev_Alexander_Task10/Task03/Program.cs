@@ -1,4 +1,4 @@
-﻿using StringArrayExtension;
+﻿using StringArrayExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +11,10 @@ namespace Task03
     class Program
     {
         private static object syncLock = new object();
-        public static void ThreadingSort(String[] s, StringArrayExtension.StringArrayExtension.Function order, Action callback)
+        public static void ThreadingSort(String[] s, StringArrayExtension.Function order, Action<String[]> callback)
         {
-            lock (syncLock)
-            {
-                s.MySort(order);
-            }
-            
+            s.MySort(order);
+            callback(s);
         }
 
         static void Main(string[] args)
@@ -26,7 +23,7 @@ namespace Task03
             String[] s = { "String", "Bool", "Array", "Solution", "Delegate", "Class" };
             Console.WriteLine("{0}", string.Join("\n", s));
             Console.WriteLine();
-            Action callback1 = () => Console.WriteLine("{0}", string.Join("\n", s));
+            Action<String[]> callback1 = (sortedArray) => Console.WriteLine("{0}", string.Join("\n", sortedArray));
             Thread thread1 = new Thread(() => ThreadingSort(s, OrderBy.Ascending, callback1));
             thread1.Start();
             

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StringArrayExtension
+namespace StringArrayExtensions
 {
     public static class StringArrayExtension //Класс методов расширения типа Array
     {
+        
+
         public static void Swap<T>(T[] items, int left, int right) //Метод, меняющий элементы массива местами
         {
             if (left != right)
@@ -22,6 +24,7 @@ namespace StringArrayExtension
 
         public static void MySort(this String[] items, Function order) //Сортировка
         {
+
             bool swapped;
             do
             {
