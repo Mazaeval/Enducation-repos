@@ -13,7 +13,7 @@ namespace PointsLibrary
 
         public override int GetHashCode()
         {
-            return x^(x+1) ^ y^(y+1);
+            return  x*x+y*y*y*y*y;
         }
     }
 
@@ -34,43 +34,25 @@ namespace PointsLibrary
             //// уникальных точек будет 2, хотя координаты их одинаковы
             //Console.WriteLine("TwoDPointWithHash:");
             
-            var twoDPointList = new List<TwoDPoint>();
-            var twoDPointWithHashList = new List<TwoDPointWithHash>();
-            for (int i = 1; i <= 100; i ++)
+            var twoDPointWithHashList = new List<int>();
+            for (int i = 9000; i <= 11000; i ++)
             {
-                for (int j = 1; j <= 100; j++)
+                for (int j = 9000; j <= 11000; j++)
                 {
-                    twoDPointList.Add(new TwoDPoint(i, j));
-                    twoDPointWithHashList.Add(new TwoDPointWithHash(i, j));
+                    var p = new TwoDPointWithHash(i, j);
+                    twoDPointWithHashList.Add(p.GetHashCode());
                 }
             }
 
-            
-            var distinctTwoDPointList = twoDPointList.Distinct();
-            //foreach (var point in distinctTwoDPointList)
-            //{
-            //    Console.WriteLine("Distinct point: {0}", point);
-            //}
+            var allCount = twoDPointWithHashList.Count;
+            var unique = twoDPointWithHashList.Distinct().Count();
 
-            //foreach (var point in distinctTwoDPointList)
-            //{
-            //   Console.Write("{0} ", point.GetHashCode());
-            //}
 
-            Console.WriteLine("TwoDPoint: {0} out of {1} unique hashes", distinctTwoDPointList.Count(), twoDPointList.Count());
-
-            var distinctTwoDPointWithHashList = twoDPointWithHashList.Distinct();
-            //foreach (var point in distinctTwoDPointWithHashList)
-            //{
-            //    Console.WriteLine("Distinct point: {0}", point);
-            //}
-            Console.WriteLine();
-            foreach (var point in distinctTwoDPointWithHashList)
-            {
-                Console.Write("{0} ", point.GetHashCode());
-            }
-
-            Console.WriteLine("twoDPointWithHashList: {0} out of {1} unique hashes", distinctTwoDPointWithHashList.Count(), twoDPointWithHashList.Count());
+            Console.WriteLine("twoDPointWithHashList: {0} out of {1} unique hashes", unique, allCount);
+            Console.WriteLine("twoDPointWithHashList: {0} the same", allCount - unique);
+            var diff = allCount - unique;
+            double percentOfTheSameValues = (double)(diff * 100) / allCount;
+            Console.WriteLine("twoDPointWithHashList: {0}% garbage", percentOfTheSameValues);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UserLibrary
 {
-    public class MyUser
+    public class MyUser : IEquatable<MyUser>
     {
         private String firstname;
         private String lastname;
@@ -92,6 +92,13 @@ namespace UserLibrary
         public override string ToString()
         {
             return firstname + " " + lastname + " " + birthdate.Date.ToString("dd-MM-yyyy") + " " + createdate.ToString();
+        }
+
+        public bool Equals(MyUser other)
+        {
+            return (this.FirstName == other.FirstName &&
+                    this.MiddleName == other.MiddleName &&
+                    this.LastName == other.LastName);
         }
 
 

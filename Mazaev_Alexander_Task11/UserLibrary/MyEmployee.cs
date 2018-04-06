@@ -17,7 +17,11 @@ namespace UserLibrary
 
         public bool Equals(MyEmployee other)
         {
-            return (this.GetHashCode() == other.GetHashCode());
+            return (this.experience.years == other.experience.years &&
+                    this.experience.months == other.experience.months &&
+                    this.Post == other.Post &&
+                    this.EnglishLevel == other.EnglishLevel &&
+                    base.Equals(other));
         }
 
         private ExperienceStruct experience;

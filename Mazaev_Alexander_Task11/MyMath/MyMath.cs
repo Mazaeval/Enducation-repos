@@ -24,10 +24,6 @@ namespace MyMaths
 
         public static int Pow (int number, int power)
         {
-            if (power == 0)
-            {
-                return 1;
-            }
             int result = 1;
             for (int i = 1; i<=power; i++)
             {

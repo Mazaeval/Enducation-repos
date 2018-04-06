@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MyMaths;
 
 namespace Task01
 {
     class Program
     {
+        public static void PowText(String source)
+        {
+            
+        }
+
         static void Main(string[] args)
         {
-            Console.WriteLine(MyMath.Fact(7));
-            Console.WriteLine(MyMath.Pow(2,0));
-            Console.ReadKey();
-
         }
     }
 }
