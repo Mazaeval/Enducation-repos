@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
+            this.ctlErrorProviderRewards = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ctlErrorProviderRewards)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTitle
@@ -51,6 +54,8 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(236, 20);
             this.txtDescription.TabIndex = 1;
+            this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
+            this.txtDescription.Validated += new System.EventHandler(this.txtDescription_Validated);
             // 
             // lblTitle
             // 
@@ -91,6 +96,10 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // ctlErrorProviderRewards
+            // 
+            this.ctlErrorProviderRewards.ContainerControl = this;
+            // 
             // RewardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,6 +115,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RewardForm";
             this.Text = "Reward";
+            ((System.ComponentModel.ISupportInitialize)(this.ctlErrorProviderRewards)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +130,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.ErrorProvider ctlErrorProvider;
+        private System.Windows.Forms.ErrorProvider ctlErrorProviderRewards;
     }
 }

@@ -8,7 +8,7 @@ namespace UsersAndRewards.Shared
 {
     public class RewardViewModel
     {
-        public int RewardId { get; set; }
+        //public int RewardId { get; set; }
 
         public string Title { get; set; }
 
@@ -17,7 +17,7 @@ namespace UsersAndRewards.Shared
         public static RewardViewModel ToModel(Reward reward)
         {
             var model = new RewardViewModel();
-            model.RewardId = reward.RewardId;
+            //model.RewardId = reward.RewardId;
             model.Title = reward.Title;
             model.Description = reward.Description;
 

@@ -32,12 +32,12 @@ namespace UsersAndRewards.PL.WinForms.RewardForms
         {
             if (string.IsNullOrEmpty(ctrlValue))
             {
-                ctlErrorProvider.SetError(ctl, errorMessage);
+                ctlErrorProviderRewards.SetError(ctl, errorMessage);
                 e.Cancel = true;
             }
             else
             {
-              //  ctlErrorProvider.SetError(txtTitle, string.Empty);
+                ctlErrorProviderRewards.SetError(txtTitle, string.Empty);
                 e.Cancel = false;
             }
         }
@@ -51,5 +51,17 @@ namespace UsersAndRewards.PL.WinForms.RewardForms
         {
             Title = txtTitle.Text.Trim();
         }
+
+        private void txtDescription_Validating(object sender, CancelEventArgs e)
+        {
+            Validate(txtDescription, txtDescription.Text.Trim(), "Description cannot be empty", e);
+        }
+
+        private void txtDescription_Validated(object sender, EventArgs e)
+        {
+            Description = txtDescription.Text.Trim();
+        }
+
+
     }
 }
