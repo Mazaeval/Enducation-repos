@@ -51,6 +51,29 @@ namespace UsersAndRewards.PL.WinForms
 			}
 		}
 
+        private void EditUser()
+        {
+            var currentUser = new User();
+            int currentId = Convert.ToInt32(ctlUsers["Id", ctlUsers.CurrentRow.Index].Value.ToString());
+            currentUser = logic.GetUserById(currentId);
+            var userForm = new UserForm(currentUser, logic.GetRewards());
+            if (userForm.ShowDialog() == DialogResult.OK)
+            {
+                var name = userForm.FirstName;
+                var last = userForm.LastName;
+                var birth = userForm.BirthDate;
+                var user = new User();
+                user.FirstName = name;
+                user.LastName = last;
+                user.Birthdate = birth;
+                user.UserId = currentUser.UserId;
+                user.Rewards = userForm.CheckedRewards;
+                // initialization
+                logic.UpdateUser(user);
+                UpdateUsersGrid();
+            }
+        }
+
         private void AddReward()
         {
             var rewardForm = new RewardForm();
@@ -65,6 +88,8 @@ namespace UsersAndRewards.PL.WinForms
                 UpdateRewardsGrid();
             }
         }
+
+
 
         private void btnDelete_Click(object sender, EventArgs e)
 		{
@@ -122,6 +147,11 @@ namespace UsersAndRewards.PL.WinForms
         private void ctlRewards_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnUsersEdit_Click(object sender, EventArgs e)
+        {
+            EditUser();
         }
     }
 }

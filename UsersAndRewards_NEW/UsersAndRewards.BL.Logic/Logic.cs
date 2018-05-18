@@ -11,7 +11,7 @@ namespace UsersAndRewards.BL.Logic
 		private IData data;
 		public Logic()
 		{
-			data = new SqlData();
+			data = new InMemoryData();
 		}
 		public void AddReward(Reward reward)
 		{
@@ -48,8 +48,8 @@ namespace UsersAndRewards.BL.Logic
 
 		public User GetUserById(int userId)
 		{
-			throw new NotImplementedException();
-		}
+            return data.GetUserById(userId);
+        }
 
 		public List<User> GetUsers()
 		{
@@ -82,7 +82,7 @@ namespace UsersAndRewards.BL.Logic
 
 		public void UpdateUser(User user)
 		{
-			throw new NotImplementedException();
+			data.UpdateUser(user);
 		}
 	}
 }

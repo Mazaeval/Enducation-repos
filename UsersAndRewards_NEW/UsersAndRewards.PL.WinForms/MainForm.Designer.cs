@@ -43,6 +43,12 @@
             this.btnDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlRewardsPage = new System.Windows.Forms.TabPage();
             this.ctlRewards = new System.Windows.Forms.DataGridView();
+            this.IdReward = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ctlContextMenuRewards = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlMainMenu = new System.Windows.Forms.MenuStrip();
             this.ctlFileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,20 +56,15 @@
             this.ctlEditMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddUser = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddReward = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctlContextMenuRewards = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.IdReward = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnUsersEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlTab.SuspendLayout();
             this.ctlUsersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctlUsers)).BeginInit();
             this.ctlContextMenuUsers.SuspendLayout();
             this.ctlRewardsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctlRewards)).BeginInit();
-            this.ctlMainMenu.SuspendLayout();
             this.ctlContextMenuRewards.SuspendLayout();
+            this.ctlMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // ctlTab
@@ -151,21 +152,22 @@
             // 
             this.ctlContextMenuUsers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAddUserContextMenu,
-            this.btnDelete});
+            this.btnDelete,
+            this.btnUsersEdit});
             this.ctlContextMenuUsers.Name = "ctlContextMenu";
-            this.ctlContextMenuUsers.Size = new System.Drawing.Size(108, 48);
+            this.ctlContextMenuUsers.Size = new System.Drawing.Size(181, 92);
             // 
             // btnAddUserContextMenu
             // 
             this.btnAddUserContextMenu.Name = "btnAddUserContextMenu";
-            this.btnAddUserContextMenu.Size = new System.Drawing.Size(107, 22);
+            this.btnAddUserContextMenu.Size = new System.Drawing.Size(180, 22);
             this.btnAddUserContextMenu.Text = "Add...";
             this.btnAddUserContextMenu.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(107, 22);
+            this.btnDelete.Size = new System.Drawing.Size(180, 22);
             this.btnDelete.Text = "Delete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -195,6 +197,49 @@
             this.ctlRewards.Size = new System.Drawing.Size(786, 394);
             this.ctlRewards.TabIndex = 1;
             this.ctlRewards.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ctlRewards_CellContentClick);
+            // 
+            // IdReward
+            // 
+            this.IdReward.DataPropertyName = "RewardId";
+            this.IdReward.HeaderText = "Id";
+            this.IdReward.Name = "IdReward";
+            this.IdReward.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Title";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Title";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            // 
+            // ctlContextMenuRewards
+            // 
+            this.ctlContextMenuRewards.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.ctlContextMenuRewards.Name = "ctlContextMenuRewards";
+            this.ctlContextMenuRewards.Size = new System.Drawing.Size(108, 48);
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.addToolStripMenuItem.Text = "Add...";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // ctlMainMenu
             // 
@@ -251,48 +296,12 @@
             this.btnAddReward.Text = "Add Reward...";
             this.btnAddReward.Click += new System.EventHandler(this.btnAddReward_Click);
             // 
-            // ctlContextMenuRewards
+            // btnUsersEdit
             // 
-            this.ctlContextMenuRewards.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem,
-            this.deleteToolStripMenuItem});
-            this.ctlContextMenuRewards.Name = "ctlContextMenuRewards";
-            this.ctlContextMenuRewards.Size = new System.Drawing.Size(108, 48);
-            // 
-            // addToolStripMenuItem
-            // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addToolStripMenuItem.Text = "Add...";
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // IdReward
-            // 
-            this.IdReward.DataPropertyName = "RewardId";
-            this.IdReward.HeaderText = "Id";
-            this.IdReward.Name = "IdReward";
-            this.IdReward.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Title";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Title";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
+            this.btnUsersEdit.Name = "btnUsersEdit";
+            this.btnUsersEdit.Size = new System.Drawing.Size(180, 22);
+            this.btnUsersEdit.Text = "Edit";
+            this.btnUsersEdit.Click += new System.EventHandler(this.btnUsersEdit_Click);
             // 
             // MainForm
             // 
@@ -309,9 +318,9 @@
             this.ctlContextMenuUsers.ResumeLayout(false);
             this.ctlRewardsPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ctlRewards)).EndInit();
+            this.ctlContextMenuRewards.ResumeLayout(false);
             this.ctlMainMenu.ResumeLayout(false);
             this.ctlMainMenu.PerformLayout();
-            this.ctlContextMenuRewards.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,6 +355,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IdReward;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.ToolStripMenuItem btnUsersEdit;
     }
 }
 

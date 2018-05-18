@@ -69,7 +69,7 @@ namespace UsersAndRewards.DAL.DataLayer
 
 		public User GetUserById(int userId)
 		{
-			throw new NotImplementedException();
+            return users.FirstOrDefault(p => p.UserId.Equals(userId));
 		}
 
 		public List<User> GetUsers()
@@ -84,7 +84,10 @@ namespace UsersAndRewards.DAL.DataLayer
 
 		public void UpdateUser(User user)
 		{
-			throw new NotImplementedException();
-		}
+            for (int i = 0; i < users.Count; i++)
+            {
+                if (users[i].UserId == user.UserId) users[i] = user;
+            }
+        }
 	}
 }
