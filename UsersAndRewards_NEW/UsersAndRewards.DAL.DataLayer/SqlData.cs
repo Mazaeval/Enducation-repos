@@ -188,7 +188,23 @@ namespace UsersAndRewards.DAL.DataLayer
 
         public void UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            var connectionString = ConfigurationManager
+           .ConnectionStrings["myConnectionString"]
+            .ConnectionString;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var command = new SqlCommand();
+                command.CommandText = "UpdateUser";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Connection = connection;
+
+                command.Parameters.AddWithValue("@firstName", user.FirstName);
+                command.Parameters.AddWithValue("@lastName", user.LastName);
+                command.Parameters.AddWithValue("@birthdate", user.Birthdate);
+                command.Parameters.AddWithValue("@userId", user.UserId);
+                connection.Open();
+                var result = command.ExecuteScalar();
+            }
         }
     }
 }

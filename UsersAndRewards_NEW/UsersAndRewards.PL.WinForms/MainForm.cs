@@ -55,8 +55,8 @@ namespace UsersAndRewards.PL.WinForms
         {
             var currentUser = new User();
             int currentId = Convert.ToInt32(ctlUsers["Id", ctlUsers.CurrentRow.Index].Value.ToString());
-            currentUser = logic.GetUserById(currentId);
-            var userForm = new UserForm(currentUser, logic.GetRewards());
+            //currentUser = logic.GetUserById(currentId);
+            var userForm = new UserForm(null, logic.GetRewards());
             if (userForm.ShowDialog() == DialogResult.OK)
             {
                 var name = userForm.FirstName;
@@ -66,7 +66,8 @@ namespace UsersAndRewards.PL.WinForms
                 user.FirstName = name;
                 user.LastName = last;
                 user.Birthdate = birth;
-                user.UserId = currentUser.UserId;
+                //user.UserId = currentUser.UserId;
+                user.UserId = currentId;
                 user.Rewards = userForm.CheckedRewards;
                 // initialization
                 logic.UpdateUser(user);
